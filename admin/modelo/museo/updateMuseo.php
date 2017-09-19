@@ -1,7 +1,7 @@
 <?php
 session_start();
-include_once("TipopagoCollector.php");
-$id_pago = $_POST['id_pago'];
+include_once("MuseoCollector.php");
+$id_museo = $_POST['id_museo'];
 $tipopagoModificado = $_POST['tipopagoModificado']; 
 $estado = $_POST['estado'];
 $tipopagoActual = $_GET['descripcion'];

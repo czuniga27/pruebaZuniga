@@ -23,8 +23,8 @@
                 return $aux;        
         }
         
-        function createTipopago($descripcion,$estado){
-                $rows = self::$db->insertRow("INSERT INTO tipo_pago (descripcion, estado) VALUES ('$descripcion', '$estado')",null);
+        function createMuseo($nombre,$id_ciudad){
+                $rows = self::$db->insertRow("INSERT INTO museo (nombre, id_ciudad) VALUES ('$nombre', '$id_ciudad')",null);
         
         }
         
