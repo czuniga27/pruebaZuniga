@@ -1,7 +1,7 @@
 <?php
     session_start();
-    include_once("TipopagoCollector.php");
-    $tipopagoCollectorObj = new TipopagoCollector();
+    include_once("MuseoCollector.php");
+    $museoCollectorObj = new MuseoCollector();
 ?>
 
 <html>
@@ -30,19 +30,19 @@
         <thead>
             <tr>
                 <th>ID</th>   
-                <th>DESCRIPCION</th>
-                <th>ESTADO</th>
+                <th>NOMBRE</th>
+                <th>ID-CIUDAD</th>
                 <th>OPERACIONES</th>
             </tr>
         </thead>
         <?php
-            foreach ($tipopagoCollectorObj->showTipopago() as $c){
+            foreach ($museoCollectorObj->showMuseo() as $c){
             echo "<tr>";
-            echo "<td>" . $c->get_id_pago() . "</td>";         
-            echo "<td>" . $c->get_descripcion() . "</td>";   
-            echo "<td>" . $c->get_estado() . "</td>";
-            echo "<td><a href='form_EditTipopago.php?id_pago=". $c->get_id_pago() ." & descripcion=". $c->get_descripcion() ." & estado=". $c->get_estado()."' class='btn btn-xs btn-warning' data-toggle='tooltip' title='Editar'><i class='glyphicon glyphicon-pencil'></i>
-                </a> <a href='deleteTipopago.php?ID=". $c->get_id_pago() ."' class='btn btn-xs btn-danger' data-toggle='tooltip' title='Eliminar'><i class='glyphicon glyphicon-remove'></i>
+            echo "<td>" . $c->get_id_museo() . "</td>";         
+            echo "<td>" . $c->get_nombre() . "</td>";   
+            echo "<td>" . $c->get_id_ciudad() . "</td>";
+            echo "<td><a href='form_EditMuseo.php?id_museo=". $c->get_id_museo() ." & nombre=". $c->get_nombre() ." & id_ciudad=". $c->get_id_ciudad()."' class='btn btn-xs btn-warning' data-toggle='tooltip' title='Editar'><i class='glyphicon glyphicon-pencil'></i>
+                </a> <a href='deleteMuseo.php?ID=". $c->get_id_museo() ."' class='btn btn-xs btn-danger' data-toggle='tooltip' title='Eliminar'><i class='glyphicon glyphicon-remove'></i>
                 </a></td>"; 
             echo "</tr>"; 
             }

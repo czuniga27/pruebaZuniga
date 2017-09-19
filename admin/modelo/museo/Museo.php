@@ -7,7 +7,7 @@
         private $id_ciudad;
   
 
-         function __construct($id_pago, $nombre, $id_ciudad) {
+         function __construct($id_museo, $nombre, $id_ciudad) {
            $this->id_museo = $id_museo;
            $this->nombre = $nombre;
            $this->id_ciudad = $id_ciudad;

@@ -1,23 +1,25 @@
 <?php
 
-    include_once('Tipopago.php');
+    include_once('Museo.php');
     include_once('../Collector.php');
 
-    class TipopagoCollector extends Collector{
+    class MuseoCollector extends Collector{
 
-        function showTipopago() {
-                $rows = self::$db->getRows("SELECT * FROM tipo_pago ");
-                $arrayTipopago= array();        
+        function showMuseo() {
+                $rows = self::$db->getRows("SELECT * FROM museo ");
+                $arrayMuseo= array();        
                 foreach ($rows as $c){
-                    $aux = new Tipopago($c{'id_pago'},$c{'descripcion'},$c{'estado'});
-                    array_push($arrayTipopago, $aux);
+                    $aux = new Museo($c{'id_museo'},$c{'nombre'}, $c{'id_ciudad'});
+                    array_push($arrayMuseo, $aux);
                 }
-                return $arrayTipopago;        
+                return $arrayMuseo;        
         }
 
-        function showTipopagoU($id_pago) {
-                $rows = self::$db->getRows("SELECT * FROM tipo_pago WHERE id_pago=$id_pago");
-                $aux = new Tipopago($rows[0]{'id_pago'},$rows[0]{'descripcion'},$rows[0]{'estado'});
+
+
+        function showMuseoU($id_museo) {
+                $rows = self::$db->getRows("SELECT * FROM museo WHERE id_museo=$id_museo");
+                $aux = new Museo($rows[0]{'id_museo'},$rows[0]{'nombre'},$rows[0]{'id_ciudad'});
                 return $aux;        
         }
         
@@ -31,8 +33,8 @@
 
         }
         
-        function deleteTipopago($id_pago) {
-                 $rows = self::$db->deleteRow("DELETE FROM tipo_pago WHERE id_pago=$id_pago",null);
+        function deleteMuseo($id_museo) {
+                 $rows = self::$db->deleteRow("DELETE FROM museo WHERE id_museo=$id_museo",null);
 
 
         }
